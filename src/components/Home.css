@@ -1,0 +1,58 @@
+/* Home.css */
+
+/* Style for the main container */
+#main-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style for the Home heading */
+#home-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style for the buttons */
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: none;
+}
+
+/* Style for the All trips button */
+#all-trips-button {
+  background-color: #007bff; /* Change the background color to your preference */
+  color: #fff; /* Text color */
+  border: none;
+}
+
+/* Style for the Register button */
+#register-button {
+  background-color: #28a745; /* Change the background color to your preference */
+  color: #fff; /* Text color */
+  border: none;
+}
+
+/* Style for the Logout button */
+#logout-button {
+  background-color: #dc3545; /* Change the background color to your preference */
+  color: #fff; /* Text color */
+  border: none;
+}
+
+/* Add a hover effect to buttons */
+.button:hover {
+  background-color: #0056b3; /* Change the hover background color to your preference */
+}
+
+/* Style for the paragraph with background image (if needed) */
+#background-image {
+  background-image: url('https://th.bing.com/th/id/R.7d6aaa1dc03c51fbddb9042c77e94cff?rik=XBcEouEOnUtcZw&pid=ImgRaw&r=0');
+  background-size: cover;
+  height: 200px; /* Set the desired height */
+  margin-bottom: 20px;
+}

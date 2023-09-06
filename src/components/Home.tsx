@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
+import './Home.css'
 
 function Home() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -8,22 +9,24 @@ function Home() {
     setToken(null);
   };
   return (
-    <>
-      <div>Home</div>
+  <div id="background-image">
+    <div id="main-container">
+      <div id="home-heading">Home</div>
       <Link to={'/Trips'}>
-        <button>All trips</button>
+        <button id="all-trips-button" className="button">All trips</button>
       </Link>
       <Link to={'/UserRegistration'}>
-        <button>regist</button>
+        <button id="register-button" className="button">Register</button>
       </Link>
       {token ? (
-        <button onClick={handleLogout}>Log out</button>
+        <button id="logout-button" className="button" onClick={handleLogout}>Log out</button>
       ) : (
         <Link to="/UserLogin">
-          <button>Log in</button>
+          <button className="button">Log in</button>
         </Link>
       )}
-    </>
+    </div>
+    </div>
   )
 }
 

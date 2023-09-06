@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {TokenId} from '../App'
+// import {TokenId} from '../App'
 
 
 const UserLogin = () => {
@@ -9,7 +9,7 @@ const UserLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const {tokenId, setTokenId} = useContext(TokenId);
+  // const {tokenId, setTokenId} = useContext(TokenId);
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -25,20 +25,20 @@ const UserLogin = () => {
         'http://localhost:3000/api/auth/login',
         {
           method: 'POST',
-          headers:{
-            authorization: tokenId
-          },
+          headers: {
+            "authorization": "test-token",
+            "Content-Type": "application/json"},
           body: JSON.stringify(body),
-        });
+      });
+      const data = await response.json();
+      console.log(data);
 
       if (!response.ok) {
         throw new Error('Login failed');
       }
 
-      const data = await response.json();
       localStorage.setItem('token', data.responseObj.token)
-      setTokenId(data)
-      console.log(data);
+      // setTokenId(data)
       setLoginSuccess(true);
     } catch (error) {
       setError(`Error: ` + error);
@@ -55,8 +55,8 @@ const UserLogin = () => {
       <div>User login</div>
       {loginSuccess ? (
         <>
-        <p>login successful! You now a manager.</p>
-        <Link to={'/Trips'}><button>All trips</button></Link>
+          <p>login successful! You now a manager.</p>
+          <Link to={'/Trips'}><button>All trips</button></Link>
         </>
       ) : (
         <form onSubmit={login}>

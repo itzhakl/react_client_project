@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 const UserRegistration = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
@@ -30,15 +30,17 @@ const UserRegistration = () => {
           },
           body: JSON.stringify(body),
         });
+        const data = await response.json();
+        console.log(data);
 
       if (!response.ok) {
         throw new Error('Registration failed');
+        setError(data.error)
       }
 
-      const data = await response.json();
-      console.log(data);
       setRegistrationSuccess(true);
     } catch (error) {
+      console.log(error);
       setError(`Error: ` + error);
     } finally {
       setLoading(false);
