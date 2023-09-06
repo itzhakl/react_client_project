@@ -1,4 +1,6 @@
-import React from 'react'
+// import React from 'react'
+// import TripDetail from './TripDetail'
+// import {Link} from 'react-router-dom'
 
 type Trip = {
   name: string;
@@ -16,12 +18,12 @@ type Props = {
 const CreateTrip = (props: Props) => {
   return (
     <div>
-      <p>{props.trip.destination}</p>
-      <p>{props.trip.endDate}</p>
-      <p>{props.trip.id}</p>
-      <img src={props.trip.image}></img>
-      <p>{props.trip.name}</p>
-      <p>{props.trip.startDate}</p>
+      <h2 key={'destination'}>{props.trip.destination}</h2>
+      <h2 key={'endDate'}>{props.trip.endDate}</h2>
+      <h2 key={'id'}>{props.trip.id}</h2>
+      <img key={'image'} src={props.trip.image}></img>
+      <h2 key={'name'}>{props.trip.name}</h2>
+      <h2 key={'startDate'}>{props.trip.startDate}</h2>
     </div>
   )
 }
